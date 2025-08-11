@@ -5,37 +5,164 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Apprends Git & GitHub</title>
     <style>
-        /* Reset simple */
+        @import url('https://fonts.googleapis.com/css2?family=Fira+Code&display=swap');
+
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
-            font-family: 'Segoe UI', Tahoma, sans-serif;
+            font-family: 'Fira Code', monospace;
             background-color: #0d1117;
             color: #c9d1d9;
-            text-align: center;
             line-height: 1.6;
         }
 
+        /* Effet terminal en header */
         header {
-            padding: 3rem 1rem;
-            background: linear-gradient(135deg, #6f42c1, #0366d6);
-            color: white;
+            height: 100vh;
+            background: url('https://images.unsplash.com/photo-1518779578993-ec3579fee39f?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: left;
+            padding: 2rem;
+            background-blend-mode: multiply;
+            background-color: rgba(0,0,0,0.85);
         }
 
-        header h1 {
-            font-size: 2.5rem;
+        .terminal {
+            background-color: #161b22;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.6);
+            max-width: 650px;
+            width: 100%;
+            border: 1px solid #30363d;
+        }
+
+        .terminal-bar {
+            display: flex;
+            gap: 8px;
             margin-bottom: 1rem;
         }
+        .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
+        .red { background: #ff5f56; }
+        .yellow { background: #ffbd2e; }
+        .green { background: #27c93f; }
 
-        header p {
+        .terminal-content {
             font-size: 1.2rem;
+            white-space: pre-wrap;
+            color: #58a6ff;
         }
 
+        /* Animation écriture */
+        .typing {
+            border-right: 2px solid #58a6ff;
+            animation: blink 0.8s infinite;
+        }
+        @keyframes blink {
+            50% { border-color: transparent; }
+        }
+
+        /* Bouton CTA */
         .cta {
             margin-top: 2rem;
+            text-align: center;
         }
-
         .cta a {
             background-color: #2ea44f;
             color: white;
-            p
+            padding: 0.8rem 1.5rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background 0.3s ease;
+        }
+        .cta a:hover {
+            background-color: #22863a;
+        }
+
+        /* Section contenu */
+        section {
+            max-width: 1000px;
+            margin: 4rem auto;
+            padding: 1rem;
+        }
+        .features {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            justify-content: center;
+        }
+        .card {
+            background-color: #161b22;
+            border-radius: 8px;
+            padding: 1.5rem;
+            flex: 1 1 250px;
+            border: 1px solid #30363d;
+            transition: transform 0.2s ease;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        footer {
+            text-align: center;
+            padding: 1rem;
+            background-color: #161b22;
+            font-size: 0.9rem;
+            color: #8b949e;
+            margin-top: 3rem;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="terminal">
+            <div class="terminal-bar">
+                <span class="dot red"></span>
+                <span class="dot yellow"></span>
+                <span class="dot green"></span>
+            </div>
+            <div class="terminal-content">
+                $ git init<br>
+                $ git add .<br>
+                $ git commit -m "Mon premier commit"<br>
+                <span class="typing">$ Prêt à devenir un pro ?</span>
+            </div>
+        </div>
+        <div class="cta">
+            <a href="#start">🚀 Commencer maintenant</a>
+        </div>
+    </header>
+
+    <section id="start">
+        <h2 style="text-align:center;">Pourquoi apprendre Git & GitHub ?</h2>
+        <div class="features">
+            <div class="card">
+                <h3>📜 Historique de ton code</h3>
+                <p>Reviens dans le passé, annule les erreurs et travaille sans peur.</p>
+            </div>
+            <div class="card">
+                <h3>🤝 Collaboration</h3>
+                <p>Travaille avec d'autres développeurs sans écraser leur travail.</p>
+            </div>
+            <div class="card">
+                <h3>🌍 Partage tes projets</h3>
+                <p>Montre tes créations au monde et contribue à l'open source.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        Créé avec ❤️ par un geek pour les geeks • 2025
+    </footer>
+
+</body>
+</html>
